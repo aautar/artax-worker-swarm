@@ -1,0 +1,9 @@
+{
+    "require": {
+        "amphp/amp": "^1.2",
+        "amphp/artax": "^2.0"
+    },
+    "autoload": {
+         "psr-4": {"Av\\": "src/"}
+     }
+}
