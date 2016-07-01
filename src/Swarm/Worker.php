@@ -2,8 +2,10 @@
 
 namespace Av\Swarm;
 
+use Amp\Promise;
+
 interface Worker
 {
-    public function launch();
+    public function launch() : Promise;
     public function getData();
 }

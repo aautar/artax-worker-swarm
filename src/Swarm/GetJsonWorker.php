@@ -2,12 +2,19 @@
 
 namespace Av\Swarm;
 
+use Amp\Promise;
 use Amp\Artax\Client as HttpClient;
 
 class GetJsonWorker implements Worker
 {
+    /**
+     * @var stdClass
+     */
     private $data;
 
+    /**
+     * @var string
+     */
     private $url;
 
     public function __construct(string $url)
@@ -15,7 +22,7 @@ class GetJsonWorker implements Worker
         $this->url = $url;
     }
 
-    public function launch()
+    public function launch() : Promise
     {
         return \Amp\resolve($this->doWork());
     }

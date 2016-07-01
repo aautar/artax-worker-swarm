@@ -2,10 +2,11 @@
 
 namespace Av\Swarm;
 
+use Amp\Promise;
+
 class Hive
 {
     /**
-     *
      * @var Worker[]
      */
     private $requests;
@@ -15,7 +16,7 @@ class Hive
         $this->requests = $requests;
     }
 
-    public function swarm()
+    public function swarm() : Promise
     {
         $promises = [];
         foreach($this->requests as $req) {
