@@ -6,6 +6,6 @@ use Amp\Promise;
 
 interface Worker
 {
-    public function launch() : Promise;
+    public function launch();
     public function getData();
 }

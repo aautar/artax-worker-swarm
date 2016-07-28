@@ -5,13 +5,13 @@ namespace Av\Main;
 use \Av\Swarm\Hive;
 use \Av\Swarm\GetJsonWorker;
 
-require "vendor/autoload.php";
+require "../vendor/autoload.php";
 
 class Main
 {
     public function run()
     {
-        \Amp\run(function() {
+        //\Amp\run(function() {
 
             echo 'starting...\n';
 
@@ -28,14 +28,16 @@ class Main
                 $hive = new Hive($workers);
 
                 // Tell the workers in the hive to swarm
-                yield $hive->swarm(); // yield for the swarm
+                $hive->swarm(); // yield for the swarm
 
+                $hive->wait();
+                
                 var_dump($workers);
 
             } catch (\Exception $e) {
                 var_dump($e);
             }
-        });
+        //});
     }
 }
 
